@@ -1,6 +1,7 @@
 import express  from "express";
 import mongoose from "mongoose";
 import env from "dotenv";
+import path from "path";
 
 
 // dbSinglestore.connect((err) => {
@@ -11,6 +12,10 @@ import env from "dotenv";
 //     console.log('Connected to MySQL database');
 //   });
 //console.log(process.env.SECRET);
+
+const __dirname=path.resolve();
+
+mongoose.set("strictQuery", true);
 
 env.config();
 const app=express();
@@ -33,7 +38,13 @@ orderRoutes(app);
 import userAutRoutes from "./routes/authenticationRoutes.js";
 userAutRoutes(app);
 
+app.use(express.static(path.join(__dirname,'/client/dist')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+  });
 
 app.listen(PORT,()=>{
     console.log(`Server running on PORT ${PORT}`);
 });
+
