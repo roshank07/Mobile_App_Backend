@@ -1,0 +1,32 @@
+/* register_page.css */
+
+.register-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .register-card {
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8); /* Add some transparency to the card */
+  }
+  
+  .card-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+
+  }
+  
+  .buttons-login {
+    display: flex;
+    justify-content: space-between;
+  }
+  
